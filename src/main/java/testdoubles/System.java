@@ -11,4 +11,8 @@ public class System {
         //returns number of logged in users
         return 0;
     }
+
+    public boolean getAuthorization(String login, String password) {
+        return this.authorizer.authorize(login, password);
+    }
 }

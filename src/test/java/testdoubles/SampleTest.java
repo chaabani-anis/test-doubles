@@ -18,6 +18,13 @@ public class SampleTest {
     @Test
     public void should_getAuthorization_with_fake_object() {
 
+        //Fake
+        Authorizer fakeAuthorizer = new FakeAuthorizer();
+        fakeAuthorizer.addAuthorized("toto");
+
+        System system = new System(fakeAuthorizer);
+
+        assertEquals(true, system.getAuthorization("toto", "toto"));
     }
 
     @Test
