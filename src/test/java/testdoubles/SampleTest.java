@@ -36,8 +36,13 @@ public class SampleTest {
     }
 
     @Test
-    public void should_verify_authorize_is_called() {
+    public void should_verify_authorize_is_called_only_once() {
+        //Spy
+        SpyAuthorizer spyAuthorizer = new SpyAuthorizer();
+        System system = new System(spyAuthorizer);
+        system.getAuthorization("toto", "toto");
 
+        assertEquals(1, spyAuthorizer.numberOfauthorizeCall());
     }
 
     @Test
