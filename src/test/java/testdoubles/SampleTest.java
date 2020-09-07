@@ -16,7 +16,7 @@ public class SampleTest {
     }
 
     @Test
-    public void should_getAuthorization_with_fake_object() {
+    public void should_verify_authorized_person_with_fake() {
 
         //Fake
         Authorizer fakeAuthorizer = new FakeAuthorizer();
@@ -28,8 +28,11 @@ public class SampleTest {
     }
 
     @Test
-    public void should_getAuthorization_with_stub() {
+    public void should_getAuthorization_always_return_true() {
+        //Stub
+        System system = new System(new StubAuthorizer());
 
+        assertEquals(true, system.getAuthorization("toto", "toto"));
     }
 
     @Test
