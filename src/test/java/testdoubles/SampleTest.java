@@ -3,6 +3,7 @@ package testdoubles;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class SampleTest {
 
@@ -47,6 +48,11 @@ public class SampleTest {
 
     @Test
     public void should_verify_authorize_return_true() {
+        MockAuthorizer mockAuthorizer = new MockAuthorizer();
+        System system = new System(mockAuthorizer);
+        system.getAuthorization("toto", "toto");
+
+        assertEquals(true, mockAuthorizer.verify());
 
     }
 

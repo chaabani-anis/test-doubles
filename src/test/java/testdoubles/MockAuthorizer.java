@@ -1,11 +1,11 @@
 package testdoubles;
 
-public class SpyAuthorizer implements Authorizer {
-    private int numberOfCall = 0;
+public class MockAuthorizer implements Authorizer {
+    private boolean authorizeWasCalled = false;
 
     @Override
     public Boolean authorize(String username, String password) {
-        numberOfCall++;
+        this.authorizeWasCalled = true;
         return true;
     }
 
@@ -14,7 +14,7 @@ public class SpyAuthorizer implements Authorizer {
 
     }
 
-    public int numberOfauthorizeCall() {
-        return numberOfCall;
+    public Boolean verify(){
+        return authorizeWasCalled;
     }
 }
